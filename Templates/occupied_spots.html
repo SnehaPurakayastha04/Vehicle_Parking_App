@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occupied Spots</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body class="admin_page">
+    <div class="header">
+<h1 class="text-center mb-2">Occupied Parking Spots</h1>
+</div>
+<table class="table table-bordered table-hover align-middle text-center mt-4">
+    <thead class="table_heading">
+    <tr>
+        <th>Spot ID</th>
+        <th>Lot</th>
+        <th>User</th>
+        <th>Vehicle Number</th>
+        <th>Start Time</th>
+        <th>Duration Time</th>
+        <th>Cost</th>
+    </tr></thead>
+    {% for spot,reservation, user, duration_hours, current_cost in occupied_details%}
+    <tr>
+        <td>{{spot.id}}</td>
+        <td>{{spot.lot.name}}</td>
+        <td>{{user.fname}}({{user.username}})</td>
+        <td>{{reservation.vehicle_number}}</td>
+        <td>{{reservation.start_time}}</td>
+        <td>{{"%0.2f"|format(duration_hours)}}</td>
+        <td>{{"%0.2f"|format(current_cost)}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<div class="text-center">
+<a href="{{url_for('admin_dashboard', user_name='admin')}}" class="text-dark">Back To Dashboard</a>
+</div>
+</body>
+</html>

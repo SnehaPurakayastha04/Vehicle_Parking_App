@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin_Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class="admin-dashboard">
+<div class="container-fluid d-flex flex-column justify-content-center align-item-center">
+    <div class="admin-dashboard-title mt-3">
+    <h1 class="text-center mb-3">Welcome back, {{user_name}}!</h1>
+    <p class="text-center">Manage Parking-Live Activity Feed</p>
+    </div>
+  <div class="flash-container container mt-3">
+    {% with messages = get_flashed_messages(with_categories=True)%}
+    {% if messages %}
+    {% for category, message in messages %}
+        <div class="flash {{category}}">
+        {{message}}
+    </div>
+        {% endfor %}
+    
+    {% endif %}
+    {% endwith %}
+    </div>
+  <div class="container mt-4 d-flex justify-content-center align-item-center">
+<div class="card shadow p-4 admin-action-card mt-5">
+    <div class="card-title"><p>What's on your admin agenda today?</p></div>
+    <a href="{{url_for('parking_lot_details')}}" class="btn mb-3">View Parking Lot Details</a>
+    <a href="{{url_for('occupied_spots')}}" class="btn mb-3">View Occupied Spots</a>
+<a href="{{url_for('add_lot')}}" class="btn mb-3">Add New Parking Lot</a>
+<a href="{{url_for('view_users')}}" class="btn mb-3">View All Registered Users</a>
+<a href="{{url_for('admin_summary_chart')}}" class="btn mb-3">View Summary Charts</a>
+<a href="/" class="btn">Back To Home</a>
+</div>
+</div>
+</div>
+</body>
+</html>

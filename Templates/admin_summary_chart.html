@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Summary_Charts</title>
+</head>
+<body class="admin_page">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="header mb-5">
+<h1 class="text-center mb-2">Summary Charts</h1>
+</div>
+<div class="container-body d-flex gap-5">
+    <div class="card mb-4">
+    <div class="custom-card-header">
+        <h2 class="text-center mt-2">Reservations Summary</h2>
+    </div>
+    <canvas id="adminReservationsChart"></canvas>
+</div>
+
+<div class="card mb-4">
+    <div class="custom-card-header">
+        <h2 class="text-center mt-2">Revenue Summary</h2>
+    </div>
+    <canvas id="adminRevenueChart"></canvas>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Reservations Chart
+    const Chartmonths=["January", "February", "March", "April","May", "June", "July", "August", "September", "October", "November","December"];
+    const ChartReservation_Count=JSON.parse('{{reservations_count|tojson|safe}}');
+    const ChartRevenue_count=JSON.parse('{{revenue_count|tojson|safe}}');
+    const ctxRes = document.getElementById('adminReservationsChart').getContext('2d');
+    new Chart(ctxRes, {
+        type: 'bar',
+        data: {
+            labels: Chartmonths,
+            datasets: [{
+                label: 'Reservations',
+                data: ChartReservation_Count,
+                backgroundColor: '#007bff'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: true }},
+            scales: { y: { beginAtZero: true }}
+        }
+    });
+
+    // Revenue Chart
+    const ctxRev = document.getElementById('adminRevenueChart').getContext('2d');
+    new Chart(ctxRev, {
+        type: 'line',
+        data: {
+            labels: Chartmonths,
+            datasets: [{
+                label: 'Revenue ($)',
+                data: ChartRevenue_count,
+                borderColor: '#28a745',
+                backgroundColor: 'rgba(40,167,69,0.2)',
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: true }},
+            scales: { y: { beginAtZero: true }}
+        }
+    });
+</script>
+<div class="text-center">
+<a href="{{url_for('admin_dashboard', user_name='admin')}}" class="text-dark">Back To Dashboard</a>
+</div>
+</body>
+</html>

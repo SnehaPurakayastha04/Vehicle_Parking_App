@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Parking Lots</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body class="auth-page">
+    <div class="container text-center justify-content-center align-content-center content">
+    <h2 class="mb-5 mt-4">Available Parking Bays</h2>
+    <table class="table table-bordered table-hover align-middle text-center parking-table">
+        <thead class="table_header">
+        <tr>
+            <th><strong>Name</strong></th>
+            <th><strong>Location</strong></th>
+            <th><strong>Total Spots</strong></th>
+            <th><strong>Available Spots</strong></th>
+            <th><strong>Action</strong></th>
+        </tr>
+        </thead>
+        {% for lot in lots%}
+        <tr>
+            <td>{{lot.name}}</td>
+            <td>{{lot.address}}</td>
+            <td>{{lot.max_spots}}</td>
+            <td>{{lot.available_spots}}</td>
+            <td>{% if lot.available_spots > 0 %}
+                <form action="{{ url_for('book_lot', lot_id=lot.id, username=username)}}" method="POST" class="d-flex align-items-center gap-2">
+                    <input type="text" class="form-control" id="vehicle_number" name="vehicle_number" placeholder="Enter Vehicle Number" required>
+                    <button class="btn btn-warning">Book</button>
+                </form>
+                {% else %}
+                <p class="badge bg-danger">Full</p>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="back-link text-center mt-3" ><a href="{{url_for('dashboard',user_name=username)}}" class="text-white text-decoration-underline">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

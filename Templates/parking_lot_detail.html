@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking_Lot</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body class="admin_page">
+    <div class="header">
+    <h1 class="text-center mb-3">Parking Lots</h1>
+    </div>
+    <table class="table table-bordered table-hover align-middle text-center mt-3">
+       <thead class="table_heading">
+        <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Pincode</th>
+        <th>Price/hr</th>
+        <th>Total Spots</th>
+        <th>Edit Lot</th>
+        <th>Delete Lot</th>
+    </tr>
+    {% for lot in lots%}
+    <tr>
+        <td>{{ lot.name}}</td>
+        <td>{{lot.address}}</td>
+        <td>{{lot.pincode}}</td>
+        <td>{{lot.price_per_hour}}</td>
+        <td>{{lot.max_spots}}</td>
+        <td>
+            <a href="{{url_for('edit_lot', lot_id=lot.id)}}" class="btn">Edit</a>
+        </td>
+        <td>
+            <form action="{{url_for('delete_lot', lot_id=lot.id)}}" method="post">
+                <button onclick="return confirm('Are You Sure?')" class="btn">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<div class="header">
+<h1 class="text-center mt-5 mb-3">Parking Lot Status</h1>
+    </div>
+    {% for item in lot_data %}
+        <h3 class="text-center mb-2 mt-2">{{ item.lot.name }} ({{ item.lot.address }})</h3>
+        <table class="table table-bordered table-hover align-middle text-center mt-3">
+            <thead class="table_heading">
+            <tr>
+                <th>Spot</th>
+                <th>Status</th>
+                <th>Vehicle</th>
+                <th>User</th>
+            </tr>
+        </thead>
+            {% for spot in item.spots %}
+                <tr>
+                    <td>{{ spot.number }}</td>
+                    <td>{{ spot.status }}</td>
+                    <td>{% if spot.vehicle %}{{ spot.vehicle }}{% else %}-{% endif %}</td>
+                    <td>{% if spot.user %}{{ spot.user }}{% else %}-{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+<div class="text-center">
+<a href="{{url_for('admin_dashboard', user_name='admin')}}" class="text-dark">Back To Dashboard</a>
+</div>
+</body>
+</html>

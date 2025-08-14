@@ -1,0 +1,351 @@
+html,body{
+    height: 100%;
+    margin:0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.auth-page{
+    background-image:url("https://images.unsplash.com/photo-1541348263662-e068662d82af?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnRzJTIwY2FyfGVufDB8fDB8fHww");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    font-family: 'Times New Roman', Times, serif;
+}
+.auth-page::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+.home .main{
+    display: flex;
+    height: 100vh;
+}
+
+ .home .main .image_side{
+     flex: 1;
+    background-image: url("https://images.unsplash.com/photo-1541348263662-e068662d82af?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnRzJTIwY2FyfGVufDB8fDB8fHww");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center
+ }
+.home .main .content_side{
+    flex: 1;
+    background-color: #cc8800 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    border-radius: 3.5px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+} 
+
+.card{
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(255,165,0,0.3);
+    border: 1px solid;
+}
+.custom-card-header{
+    background-color: #996600 ;
+    padding: 20px;
+}
+.custom-card-header h1{
+    color: white;
+    font-weight: bolder;
+    font-size: 2 rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.btn{
+    background-color: #996600;
+    color: white;
+}
+.card-body h3{
+    font-size: large;
+    font-weight: bold;
+}
+.btn:hover{
+    background-color:#664400 ;
+    color: beige;
+}
+.card:hover{
+    transform: scale(1.1);
+}
+.home .content_side h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-weight: 900;
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    
+}
+.home .content_side p{
+    color: bisque;
+    font-weight: bold;
+    font-size: 1.4rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.home .content_side:hover{
+    transform: scale(1.07);
+}
+.home .content_side .admin-login{
+    font-size: 1rem;
+    color: bisque;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.btn-3d{
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    box-shadow: 0 5px rgba(26, 17, 0, 0.3);
+    border: none;
+    font-weight: bold;
+}
+table{
+    background-color: blanchedalmond;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.table_header th{
+    background-color: #996600 !important;
+    color: white !important;
+    font-weight: bolder;
+}
+
+
+.btn-warning{
+    background-color: #996600;
+    border: none;
+    font-weight: bold;
+}
+input.form-control{
+    width: 180px;
+    text-align: center;
+}
+table:hover{
+    transform: scale(1.03);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 8px 16px rgba(26, 17, 0, 0.3);
+}
+.content h2{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
+    border-color: #664400;
+    margin-bottom: 45px;
+    animation: fadeInUp 1s ease-out;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+.back-link{
+    color: blanchedalmond;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.dashboard{
+    background-color: #ffedcc;
+    font-family: 'Times New Roman', Times, serif;
+}
+.dashboard-title{
+    color: white;
+    background-color: #b37400 ;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 8px  rgba(0, 0, 0, 0.7);
+
+}
+.dashboard-title h1{
+    font-size: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+}
+.dashboard-title p{
+    font-size: 1.75rem;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+}
+.dashboard .container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    margin-top: 40px;
+
+}
+.dashboard .card{
+    width: 100%;
+    max-width: 400px;
+    min-height: 350px;
+    padding: 20px;
+    border: 2px solid #664400;
+    border-radius: 17px;
+    box-shadow: 0 4px 8px rgba(26, 17, 0, 0.3);
+    overflow-y: auto;
+}
+.dashboard .custom-card-header{
+    background-color: #b37400;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+.dashboard .card-content .info{
+    font-size: 1.2rem;
+}
+.table_heading th{
+    background-color: bisque;
+    color: black;
+    font-weight: bold;
+}
+.admin_page{
+    /* background-image:url("https://images.unsplash.com/photo-1541348263662-e068662d82af?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnRzJTIwY2FyfGVufDB8fDB8fHww");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2; */
+    background: linear-gradient(to bottom, #ffdd99 ,#ff9900);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* .admin_page::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: -1;
+} */
+.admin-dashboard {
+    background: linear-gradient(135deg, #ffb84d, beige);
+
+}
+ .admin_page .card{
+    width:100%;
+    max-width: 500px;
+    border: 2px solid #664400;
+    box-shadow: 2px 2px 8px rgba(26, 17, 0, 0.7);
+    display: flex;
+ }
+.admin_page .card-content label{
+    font-weight: bolder;
+}
+.admin_page .table_heading th{
+    background-color: #b37400;
+    color: white;
+}
+.admin_page .header{
+    margin-top: 10px;
+    background-color: #b37400;
+    width: 98%;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.admin_page .header h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(26, 17, 0, 0.7);
+    font-size: 3rem;
+}
+.admin_page .card-body label{
+    font-weight: bold;
+}
+.table-wrapper h3{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    text-shadow: 2px 2px 8px rgba(26, 17, 0, 0.3);
+    text-align: center;
+}
+.admin-dashboard-title{
+    background: linear-gradient(90deg, #b36b00, #ffb84d);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.admin-dashboard-title h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(26, 17, 0, 0.7);
+    font-size: 3rem;
+    padding: 20px;
+}
+
+.admin-dashboard-title p{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:200;
+    font-style: italic;
+    color: bisque;
+    text-shadow: 2px 2px 6px rgba(26, 17, 0, 0.7);
+    font-size: 1.5rem;
+    padding: 10px;
+}
+.card-title{
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+}
+.admin-action-card{
+    border: 1.5px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+.admin-action-card .btn{
+    border: none;
+    background-color: #b36b00;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+.admin-action-card .btn:hover{
+    background-color: #804d00;
+    color: beige;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+.flash{
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+.flash.success{
+    background-color: #00802b;
+}
+.flash.danger{
+    background-color: #cc2900;
+}
+.flash.warning{
+    background-color: #ffcc00;
+    color: #212529;
+}
+.dashboard .table{
+    border-radius: 10px;
+}
+.admin_page .custom-card-header{
+    background-color: #b37400;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+.admin_page h3{
+    color: #804d00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Login|VehicleBay</title>
+</head>
+<body class="auth-page">
+  <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+    <!--Flash Messages-->
+      {% with messages = get_flashed_messages(with_categories=True) %}
+  {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }} mb-5">{{ message }}</div>
+      {% endfor %}
+  {% endif %}
+{% endwith %}
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif %}
+    <div class="card">
+    <div class="card-header custom-card-header text-white text-center">
+    <h1>Welcome to VehicleBay</h1>
+    </div>
+    <div class="card-body">
+    <h3>Please enter your login credentials</h3>
+    <form action="{{url_for('login')}}" method="post">
+      <div class="mb-3">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required><br>
+        </div>
+        <div class="mb-3">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn">Login</button>
+        </div>
+       </form>
+         <div class="mt-3 text-center">
+    <p>Don't have an account?
+        <a href="{{url_for('register')}}">Create account</a>
+    </p>
+    </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

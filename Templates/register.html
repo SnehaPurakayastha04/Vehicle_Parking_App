@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Register|VehicleBay</title>
+</head>
+<body class="auth-page">
+  <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+  {% if messages %}
+      {% for category, message in messages %}
+      <div class="flash {{category}} mb-5">
+        {{ message }}
+      </div>
+      {% endfor %}
+  {% endif %}
+{% endwith %}
+<div class="card">
+  <div class="card-header custom-card-header text-center">
+    <h1>Join VehicleBay</h1>
+    </div>
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif %}
+    <form action="{{url_for('register')}}" method="POST">
+      <div class="mb-3 mt-3">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter your first name" required><br>
+        </div>
+        <div class="mb-3">
+        <label for="first_name">Last Name:</label>
+        <input type="text" id="lname" name="lname" placeholder="Enter your last name" required><br>
+        </div>
+        <div class="mb-3">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter username" required><br>
+        </div>
+        <div class="mb-3">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required><br>
+        </div>
+        <div class="d-grid text-center gap-2">
+        <button type="submit" class="btn">Register</button>
+        </div>
+    </form>
+    <div class="text-center mt-3"> 
+      <p>Already have an account? <a href="{{url_for('login')}}">Login here</a></p>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
