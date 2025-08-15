@@ -62,58 +62,55 @@ vehicle_bay/                   # Root project folder
 └── venv/                      # Python virtual environment
 
 ## How It Works
-### User Registration & Login
+- ### User Registration & Login
+  - A new user can register with their details.
+  - Login form validates credentials and grants access to the user dashboard.
 
-A new user can register with their details.
+- ### Admin Access
+  - Admin has a separate dashboard to:
+  - Add/Edit/Delete parking lots
+  - View all registered users
+  - Monitor spot status (Available / Occupied)
+  - View charts of monthly reservations & revenue using Chart.js
 
-Login form validates credentials and grants access to the user dashboard.
+- ### Booking a Parking Spot
+  - User selects a parking lot.
+  - If they don’t already have an active booking, they can:
+  - Choose an available spot.
+  - Enter vehicle number.
+  - Reservation is stored in the database with start time, spot ID, and user ID.
+  - Spot status changes from "A" (Available) to "O" (Occupied).
 
-### Admin Access
+- ### Viewing Parking Lot Details
+  - Shows lot information (name, address, pincode, price/hr, total spots).
+  - Lists each spot:
+  - Spot ID
+  - Status (Available/Occupied)
+  - Vehicle Number (if occupied)
+  - Username of user occupying
 
-Admin has a separate dashboard to:
-
-Add/Edit/Delete parking lots
-
-View all registered users
-
-Monitor spot status (Available / Occupied)
-
-View charts of monthly reservations & revenue using Chart.js
-
-### Booking a Parking Spot
-
-User selects a parking lot.
-
-If they don’t already have an active booking, they can:
-
-Choose an available spot.
-
-Enter vehicle number.
-
-Reservation is stored in the database with start time, spot ID, and user ID.
-
-Spot status changes from "A" (Available) to "O" (Occupied).
-
-### Viewing Parking Lot Details
-
-Shows lot information (name, address, pincode, price/hr, total spots).
-
-Lists each spot:
-
-Spot ID
-
-Status (Available/Occupied)
-
-Vehicle Number (if occupied)
-
-Username of user occupying
-
-### Admin Summary Charts
+- ### Admin Summary Charts
+   - Monthly reservations count
+   - Monthly revenue
+   - Displays data in bar and line charts using Chart.js.
 
 
-Monthly reservations count
+## Setup Instructions
+1. Clone the repository
+git clone https://github.com/yourusername/Vehicle_Parking_App.git
+cd Vehicle_Parking_App
 
-Monthly revenue
+2. Create a virtual environment
+python3 -m venv venv
+source venv/bin/activate   # macOS/Linux
+# venv\Scripts\activate    # Windows
 
-Displays data in bar and line charts using Chart.js.
+3. Install dependencies
+pip install -r requirements.txt
+
+4. Run the application
+python app.py
+
+
+The app will be available at http://127.0.0.1:5000/
 
