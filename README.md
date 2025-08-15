@@ -96,20 +96,20 @@ vehicle_bay/                   # Root project folder
 
 
 ## Setup Instructions
-1. Clone the repository
-git clone https://github.com/yourusername/Vehicle_Parking_App.git
-cd Vehicle_Parking_App
+**1. Clone the repository**
+  git clone https://github.com/SnehaPurakayastha04/Vehicle_Parking_App.git
+  cd Vehicle_Parking_App
 
-2. Create a virtual environment
-python3 -m venv venv
-source venv/bin/activate   # macOS/Linux
-# venv\Scripts\activate    # Windows
+**2. Create a virtual environment**
+  python3 -m venv venv
+  source venv/bin/activate   # macOS/Linux
+  venv\Scripts\activate    # Windows
 
-3. Install dependencies
-pip install -r requirements.txt
+**3. Install dependencies**
+  pip install -r requirements.txt
 
-4. Run the application
-python app.py
+**4. Run the application**
+  python app.py
 
 
 The app will be available at http://127.0.0.1:5000/
